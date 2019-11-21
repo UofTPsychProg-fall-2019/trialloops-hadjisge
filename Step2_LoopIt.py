@@ -15,7 +15,7 @@ import os, sys
 from psychopy import visual, core, event, gui, logging
 
 # open a white full screen window
-win = visual.Window(fullscr=True, allowGUI=False, color='white', unit='height') 
+win = visual.Window(fullscr=True, allowGUI=False, color='black', unit='height') 
 
 # uncomment if you use a clock. Optional because we didn't cover timing this week, 
 # but you can find examples in the tutorial code 
@@ -25,15 +25,19 @@ win = visual.Window(fullscr=True, allowGUI=False, color='white', unit='height')
 #%% your loop here
 # start by copying your one trial here, then identify what needs to be
 # changed on every trial.  Likely your stimuli, but you might want to change a few things
-
+'T.png'
+'+'
 
 # make a list or a pd.DataFrame that contains trial-specific info (stimulus, etc)
 # e.g. stim = ['1.jpg','2.jpg','3.jpg']
 
+stim = ['T.png', 'A.png', 'B.png', 'L.png', 'E.png']
+responses = []
 
 # make your loop
-for t in ... :
-    
+for t in stim:
+    thisStimName = stim[t]
+    thisStim = visual.ImageStim(win, image=thisStimName, pos = (0,0))
     # include your trial code in your loop but replace anything that should 
     # change on each trial with a variable that uses your iterater
     # e.g. thisStimName = stim[t]
