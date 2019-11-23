@@ -32,12 +32,25 @@ win = visual.Window(fullscr=True, allowGUI=False, color='black', unit='height')
 # e.g. stim = ['1.jpg','2.jpg','3.jpg']
 
 stim = ['T.png', 'A.png', 'B.png', 'L.png', 'E.png']
+np.random.shuffle(stim)
 responses = []
 
 # make your loop
-for t in stim:
-    thisStimName = stim[t]
+for t in range(len(stim)):
+    myText = visual.TextStim(win,text='+',pos=(0,0), color = 'white')
+    myText.draw()
+    win.flip()
+    core.wait(1)
+    thisStimName = (stim[t])
     thisStim = visual.ImageStim(win, image=thisStimName, pos = (0,0))
+    thisStim.draw()
+    win.flip()
+    keys = event.waitKeys(keyList=('f','j'))
+    responses=np.append(responses,keys)
+    print(responses)
+    df = pd.DataFrame({'responses': responses})
+    df.to_csv('output.csv')
+
     # include your trial code in your loop but replace anything that should 
     # change on each trial with a variable that uses your iterater
     # e.g. thisStimName = stim[t]
