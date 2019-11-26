@@ -47,7 +47,6 @@ for t in range(len(stim)):
     win.flip()
     keys = event.waitKeys(keyList=('f','j'))
     responses=np.append(responses,keys)
-    print(responses)
     df = pd.DataFrame({'responses': responses})
     df.to_csv('output.csv')
 
