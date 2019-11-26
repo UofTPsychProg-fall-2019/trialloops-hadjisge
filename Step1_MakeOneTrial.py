@@ -37,11 +37,12 @@ myPic.draw()
 win.flip()
 # then record your responses
 
+keys = event.waitKeys(keyList=('f','j'))
 
 #%% Required clean up
 # this cell will make sure that your window displays for a while and then 
 # closes properly
 
-keys = event.waitKeys(keyList=('f','j'))
+
 
 win.close()
